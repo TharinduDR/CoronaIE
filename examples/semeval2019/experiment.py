@@ -14,8 +14,8 @@ if not os.path.exists(TEMP_DIRECTORY): os.makedirs(TEMP_DIRECTORY)
 
 seed_everything(SEED)
 
-train = ner_concatenate("data/train")
-dev = ner_concatenate("data/test")
+train = ner_concatenate("examples/semeval2019/data/train")
+dev = ner_concatenate("examples/semeval2019/data/test")
 
 logging.info("Training size is {}".format(train.shape[0]))
 
