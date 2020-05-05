@@ -1,3 +1,4 @@
+import errno
 import glob
 import os
 
@@ -5,6 +6,11 @@ import pandas as pd
 
 
 def ner_concatenate(path):
+
+    if not os.path.isdir(path):
+        raise FileNotFoundError(
+            errno.ENOENT, os.strerror(errno.ENOENT), path)
+
     lines = []
     sentence_id = 0
     for filename in glob.glob(os.path.join(path, "*.locs")):
